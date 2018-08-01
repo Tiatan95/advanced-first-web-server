@@ -1,0 +1,22 @@
+{
+  "name": "advanced_first_web_server_jeremy_johnson",
+  "version": "1.0.0",
+  "description": "A starter repo for the ACA Advanced `My First Web Server` project.",
+  "main": "state.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiatan95/advanced-first-web-server.git"
+  },
+  "author": "Jeremy Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tiatan95/advanced-first-web-server/issues"
+  },
+  "homepage": "https://github.com/Tiatan95/advanced-first-web-server#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
