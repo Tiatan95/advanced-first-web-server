@@ -1,1 +1,41 @@
-let express = require('express');
+let express = require("express");
+const app = express();
+let user_data = require('./state.js').users;
+let fs = require('fs');
+
+
+app.get("users",function(req,res,next){
+    return res.send(user_data[0]);
+})
+app.post("/users",function(req,res,next){
+    newUser = {
+        "_id": user_data.length+1,
+        "name": "New User",
+        "occupation": "Undecided",
+    }
+    user_data.push(newUser);
+
+    return res.send(user_data);
+})
+app.put("users/1",function(req,res,next){
+    user_data[0].occupation = "Undecided";
+    text_data = "exports.users = "+JSON.stringify(user_data);
+    fs.writeFileSync('./state.js',text_data)
+    return res.send(user_data);
+})
+app.delete("/users/1", function(req,res,next){
+    user_data.pop();
+    return res.send(user_data);
+})
+
+app.use(function(req, res, next) {
+    return res.send(user_data);
+});
+
+app.listen(6767, (err) => {
+    if (err) {
+        return console.log("Error", err);
+    }
+    console.log("Web server is now living in apartment 3002");
+});
+
